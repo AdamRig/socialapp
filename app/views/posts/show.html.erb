@@ -15,5 +15,28 @@
   <%= @post.content %>
 </p>
 
+<h2> Comment Section </h2>
+	<%= form_for([@post, Comment.new]) do |form| %>
+		       
+		
+  		<%= form.text_area :content, :rows => 4, :cols => 40 %> 
+		<div class="actions">
+			<%= form.submit "Post a Comment"%>
+		</div>
+	<% end %>
+	
+	<% if @post.comments.empty? %>
+		<h3>You are the first to comment on this post</h3>
+	<% else %>
+		<h2>What others felt about this:</h2>
+		<% @post.comments.reverse.each do |comment| %>
+			<p><%= comment.content %>
+			Posted <%= time_ago_in_words(comment.created_at) %> ago by
+			<%= image_tag(comment.user.avatar, :size => "30x30") %>
+			<%=comment.user.name %></p>
+		<% end %>
+		
+	<% end %>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

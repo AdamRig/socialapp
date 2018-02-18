@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :DOB %>
-    <%= form.date_select :DOB, id: :user_DOB %>
+    <%= form.date_field :DOB, id: :user_DOB %>
   </div>
 
   <div class="field">
@@ -43,7 +43,12 @@
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.text_field :password_digest, id: :user_password_digest %>
+    <%= form.password_field :password, id: :user_password %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
   </div>
 
   <div class="actions">

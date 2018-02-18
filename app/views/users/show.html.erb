@@ -2,7 +2,7 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= @user.avatar %>
+  <%= image_tag(@user.avatar, :size => "50x50") %>
 </p>
 
 <p>
@@ -30,10 +30,7 @@
   <%= @user.country %>
 </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password_digest %>
-</p>
+
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
